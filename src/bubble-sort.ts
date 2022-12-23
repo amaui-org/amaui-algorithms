@@ -4,7 +4,7 @@
 
 // When no swaps are made in the entire array loop, they are all sorted.
 // Complexity: O(n ^ 2)
-export default function bubbleSort<T = number>(value: Array<T>): Array<T> {
+export default function bubbleSort<T = number>(value: Array<T>, ascending = true): Array<T> {
   const length = value.length;
 
   let swapped = true;
@@ -13,7 +13,7 @@ export default function bubbleSort<T = number>(value: Array<T>): Array<T> {
     swapped = false;
 
     for (let i = 0; i < length; i++) {
-      if (value[i] > value[i + 1]) {
+      if (ascending ? value[i] > value[i + 1] : value[i] < value[i + 1]) {
         const item = value[i];
 
         value[i] = value[i + 1];

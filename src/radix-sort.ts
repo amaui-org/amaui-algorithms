@@ -16,7 +16,7 @@ export function getDigit(value: number, indexValue: number): number {
 
 // Makes 10 buckets, and loops for the amount of times of number of digits in the largest number in the array.And in each iteration for every digit, loops through the entire array, and sorts from right digit to the left(smallest base number to largest), all the values in buckets, and flattens the array.At the end they will all be sorted in the last flattened array.
 // Complexity: O(n)
-export default function radixSort<T = number>(value: Array<T>): Array<T> {
+export default function radixSort<T = number>(value: Array<T>, ascending = true): Array<T> {
   let array = value;
 
   const digits = maxDigits(array);
@@ -31,7 +31,7 @@ export default function radixSort<T = number>(value: Array<T>): Array<T> {
       // -1 for sign, 0 for 0 or no value, and 0-9 for a value
       const index = getDigit(array[j] as number, i);
 
-      buckets[index + 1].push(array[j]);
+      buckets[ascending ? index + 1 : 10 - (index + 1)].push(array[j]);
     }
 
     array = buckets.flatMap(item => item);

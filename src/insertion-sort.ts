@@ -3,7 +3,7 @@
 
 // At the end, the last item from back to start in the sorted part that wasn’t bigger than the first item in sorted, is replaced with that first item in sorted part.
 // Complexity: O(n ^ 2)
-export default function insertionSort<T = number>(value: Array<T>): Array<T> {
+export default function insertionSort<T = number>(value: Array<T>, ascending = true): Array<T> {
   const length = value.length;
 
   for (let i = 1; i < length; i++) {
@@ -11,7 +11,7 @@ export default function insertionSort<T = number>(value: Array<T>): Array<T> {
 
     let j = i - 1;
 
-    while (j >= 0 && value[j] > item) {
+    while (j >= 0 && (ascending ? value[j] > item : value[j] < item)) {
       value[j + 1] = value[j];
 
       j--;
