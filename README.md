@@ -39,11 +39,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/algorithms
-
-  // npm
-  npm install @amaui/algorithms
 ```
 
 ### Algorithms
