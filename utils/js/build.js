@@ -274,7 +274,7 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
   let valueNew = `\n\n### API\n\n`;
 
   parts.forEach(part => {
-    const partName = (part.replace('default ', '').match(/(?!type|interface|const|function|class) [^ \(\)\{\}\:]+/i) || [])[0]?.trim();
+    const partName = (part.replace('default ', '').match(/(?!type|interface|const|function|class) [^ \(\)\{\}\<\:]+/i) || [])[0]?.trim();
 
     valueNew += `#### ${partName}\n\n\`\`\`ts\n${part.trim()}\n\`\`\`\n\n`;
   });
@@ -287,6 +287,12 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
   });
 
   if (!values.length) values.push(valueNew);
+
+  values = values.map(item => {
+    if (item.startsWith('{')) return `~${item}~`;
+
+    return item;
+  });
 
   // Update the file or create it if it doesn't exist
   await fse.writeFile(usePath, values.join('\n'));

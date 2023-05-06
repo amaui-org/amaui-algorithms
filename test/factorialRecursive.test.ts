@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import * as AmauiAlgorithms from '../src';
 
-group('@amaui/algorithms/factorial-recursive', () => {
+group('@amaui/algorithms/factorialRecursive', () => {
 
   to('factorialRecursive', async () => {
     const valueBrowsers = await evaluate((window: any) => {

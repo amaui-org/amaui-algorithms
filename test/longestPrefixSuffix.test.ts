@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import * as AmauiAlgorithms from '../src';
 
-group('@amaui/algorithms/longest-prefix-suffix', () => {
+group('@amaui/algorithms/longestPrefixSuffix', () => {
 
   to('longestPrefixSuffix', async () => {
     const valueBrowsers = await evaluate((window: any) => {

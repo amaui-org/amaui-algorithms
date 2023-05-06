@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import * as AmauiAlgorithms from '../src';
 
-group('@amaui/algorithms/binary-search-recursive', () => {
+group('@amaui/algorithms/binarySearchRecursive', () => {
 
   to('binarySearchRecursive', async () => {
     const valueBrowsers = await evaluate((window: any) => {

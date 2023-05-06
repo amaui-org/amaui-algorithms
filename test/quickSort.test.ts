@@ -5,13 +5,13 @@ import { evaluate } from '../utils/js/test/utils';
 
 import * as AmauiAlgorithms from '../src';
 
-group('@amaui/algorithms/merge-sort', () => {
+group('@amaui/algorithms/quickSort', () => {
 
-  to('mergeSort', async () => {
+  to('quickSort', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      return window.AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14]);
+      return window.AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14]);
     });
-    const valueNode = AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14]);
+    const valueNode = AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14]);
     const values = [valueNode, ...valueBrowsers];
 
     values.forEach(value => assert(value).eql([-414, -14, 1, 4, 14, 114]));
@@ -21,9 +21,9 @@ group('@amaui/algorithms/merge-sort', () => {
 
     to('ascending', async () => {
       const valueBrowsers = await evaluate((window: any) => {
-        return window.AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14], true);
+        return window.AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14], true);
       });
-      const valueNode = AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14], true);
+      const valueNode = AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14], true);
       const values = [valueNode, ...valueBrowsers];
 
       values.forEach(value => assert(value).eql([-414, -14, 1, 4, 14, 114]));
@@ -31,9 +31,9 @@ group('@amaui/algorithms/merge-sort', () => {
 
     to('descending', async () => {
       const valueBrowsers = await evaluate((window: any) => {
-        return window.AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14], false);
+        return window.AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14], false);
       });
-      const valueNode = AmauiAlgorithms.mergeSort([1, -14, 4, 114, -414, 14], false);
+      const valueNode = AmauiAlgorithms.quickSort([1, -14, 4, 114, -414, 14], false);
       const values = [valueNode, ...valueBrowsers];
 
       values.forEach(value => assert(value).eql([114, 14, 4, 1, -14, -414]));

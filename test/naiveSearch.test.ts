@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import * as AmauiAlgorithms from '../src';
 
-group('@amaui/algorithms/naive-search', () => {
+group('@amaui/algorithms/naiveSearch', () => {
 
   to('naiveSearch', async () => {
     const valueBrowsers = await evaluate((window: any) => {
